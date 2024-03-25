@@ -63,3 +63,17 @@ console.log(Object.keys(fbUser));  //array
 console.log(Object.values(fbUser));  //array 
 console.log(Object.entries(fbUser)); //array in array
 console.log(fbUser.hasOwnProperty(('isLoggedIn')))
+
+
+/*******************de-structure $ JSON API*************************** */
+
+const course={
+    coursename:'JavaScript in hindi',
+    price:"free",
+    courseInstructor:"Ronit Dutta"
+}
+
+// course.courseInstructor
+// CI and p are short names for (if)long names exist 
+const {courseInstructor:CI,price:p}=course
+console.log(CI);
