@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+</head>
+
+<body style="background-color: #212121">
+    <!-- <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div> -->
+    </div>
+</body>
+<script>
+    // const parent = document.querySelector(".parent")
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[2]);
+    // console.log(parent.children[2].innerText);
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);
+    // }
+    // parent.children[0].style.color = "blue"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+    // const dayone = document.querySelector('.day')
+    // console.log(dayone);
+    // console.log(dayone.parentElement);
+    // console.log(dayone.nextElementSibling);
+    // console.log("NODES: ", parent.childNodes);
+
+    function createDiv(cName,tName,bgColor,padUnit,text) {
+        const div = document.createElement('div')
+        console.log(div);
+        div.className = cName
+        div.id = Math.round(Math.random() * 10 + 1)
+        div.setAttribute('title', tName)
+        div.style.backgroundColor = bgColor
+        div.style.padding = padUnit
+        // div.innerText="Goodbye World!"
+        const addText = document.createTextNode(text)
+        div.appendChild(addText)
+        document.body.appendChild(div)
+    }
+    createDiv('first','first-title','green','19px','hello this is a div')
+</script>
+
+</html>
