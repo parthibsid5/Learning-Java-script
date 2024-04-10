@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async in Js</title>
+</head>
+
+<body>
+    <h1>Javascript async</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    // setInterval(function(){
+    //     console.log("Hello",Date.now());
+    // }, 1000);
+
+    const sayName = function (str) {
+        console.log(str, Date.now());
+    }
+    // const intervalId=setInterval(sayName,1000,"Hello");
+    // 3rd parameter is the agument for the function
+    // clearInterval(intervalId)
+
+    // start stop customizable interval---|<-->|
+
+    // let intervalId
+    // document.getElementById("start").addEventListener('click',function(){
+    //     intervalId=setInterval(sayName,1000,"Hello");
+    //     console.log("S T A R T E D");
+    // })
+    // document.getElementById("stop").addEventListener('click',function(){
+    //     clearInterval(intervalId)
+    //     console.log("S T O P P E D");
+    // })
+
+    // colour changing bg website on click
+    function valGen() {
+        return (Math.floor(Math.random() * 256))
+    }
+    
+    function changeColor() {
+        let a = valGen()
+        let b = valGen()
+        let c = valGen()
+        document.querySelector('body').style.backgroundColor = `rgb(${a},${b},${c})`
+    }
+    let bgChange
+    document.getElementById("start").addEventListener('click', function () {
+        bgChange=setInterval(changeColor, 1000)
+        console.log("clicked!");
+        document.getElementById("start").disabled = true; 
+        // to avoid abrupt on multiple clicks we have disabled the button!!
+    })
+
+    document.getElementById('stop').addEventListener('click',function(){
+        clearInterval(bgChange)
+        // bgChange=null
+        console.log("stopped !!");   
+        document.getElementById("start").disabled = false; 
+     })
+
+
+</script>
+
+</html>
